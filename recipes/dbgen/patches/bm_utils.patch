@@ -1,0 +1,15 @@
+diff --git a/data/tpch/2.18.0_rc2/dbgen/bm_utils.c b/data/tpch/2.18.0_rc2/dbgen/bm_utils.c
+index c04021a..1f649e1 100644
+--- a/data/tpch/2.18.0_rc2/dbgen/bm_utils.c
++++ b/data/tpch/2.18.0_rc2/dbgen/bm_utils.c
+@@ -68,7 +68,10 @@
+ #include <ctype.h>
+ #include <math.h>
+ #ifndef _POSIX_SOURCE
++#include <stdlib.h>
++#ifdef HAVE_MALLOC_H
+ #include <malloc.h>
++#endif
+ #endif /* POSIX_SOURCE */
+ #include <fcntl.h>
+ #include <sys/types.h>

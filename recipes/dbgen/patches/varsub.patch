@@ -1,0 +1,15 @@
+diff --git a/data/tpch/2.18.0_rc2/dbgen/varsub.c b/data/tpch/2.18.0_rc2/dbgen/varsub.c
+index 5fbdf46..c14102d 100644
+--- a/data/tpch/2.18.0_rc2/dbgen/varsub.c
++++ b/data/tpch/2.18.0_rc2/dbgen/varsub.c
+@@ -41,7 +41,10 @@
+ */
+ #include <stdio.h>
+ #ifndef _POSIX_SOURCE
++#include <stdlib.h>
++#ifdef HAVE_MALLOC_H
+ #include <malloc.h>
++#endif
+ #endif /* POSIX_SOURCE */
+ #if (defined(_POSIX_)||!defined(WIN32))
+ #include <unistd.h>

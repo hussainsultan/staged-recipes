@@ -1,0 +1,43 @@
+context:
+  version: 2.18.0
+
+package:
+  name: dbgen
+  version: 2.18.0
+
+source:
+  git_url: https://github.com/databloom-ai/TPCH-Docker.git
+  patches:
+    - patches/bm_utils.patch
+    - patches/varsub.patch
+
+build:
+  number: 1
+  skip: true  # [win and vc<14]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake         # [win]
+    - libtool       # [unix]
+    - make          # [not win]
+    - patch         # [osx]
+
+about:
+  # HTTPS does not work.
+  home:  http://github.com/databloom-ai/TPCH-Docker
+  summary: 'tpc-h dbgen tool'
+  license: MIT
+  license_file: LICENSE.md
+  license_family: MIT
+  summary: dbgen tool for generating tpc-h data
+  description: |
+    This software provides dbgen utility version 2.18
+  # HTTPS does not work.
+  doc_url: http://www.tpc.org/tpch/
+  dev_url: http://www.tpc.org/tpch/
+
+extra:
+  recipe-maintainers:
+    - hussainsultan
